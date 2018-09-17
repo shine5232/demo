@@ -1,0 +1,29 @@
+<!--Basic Scripts-->
+<script src="<{config_item('website')}>/public/js/jquery-2.0.3.min.js"></script>
+<script src="<{config_item('website')}>/public/js/bootstrap.min.js"></script>
+
+<!--Beyond Scripts-->
+<!-- <script src="<{config_item('website')}>/public/js/beyond.js"></script> -->
+<script src="<{config_item('website')}>/public/js/beyond.min.js"></script>
+
+<!--Page Related Scripts-->
+<script src="<{config_item('website')}>/public/js/bootbox/bootbox.js"></script>
+<script src="<{config_item('website')}>/public/js/layui.js"></script>
+<script>
+    // If you want to draw your charts with Theme colors you must run initiating charts after that current skin is loaded
+    $(window).bind("load", function () {
+
+        /*Sets Themed Colors Based on Themes*/
+        themeprimary = getThemeColorFromCss('themeprimary');
+        themesecondary = getThemeColorFromCss('themesecondary');
+        themethirdcolor = getThemeColorFromCss('themethirdcolor');
+        themefourthcolor = getThemeColorFromCss('themefourthcolor');
+        themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+    });
+    layui.use('form', function(){
+        var form = layui.form;
+    });
+</script>
+</body>
+</html>

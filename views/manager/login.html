@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title><{config_item('manager_title')}></title>
+
+    <meta name="description" content="login page" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!--Basic Styles-->
+    <link href="<{config_item('website')}>/public/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/js/css/layui.css" rel="stylesheet" />
+    <!--Beyond styles-->
+    <link id="beyond-link" href="<{config_item('website')}>/public/css/beyond.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/demo.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/animate.min.css" rel="stylesheet" />
+    
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="<{config_item('website')}>/public/js/skins.min.js"></script>
+</head>
+<!--Head Ends-->
+<!--Body-->
+<body>
+    <div class="login-container animated fadeInDown">
+        <div class="loginbox bg-white" style="padding: 40px 0;">
+            <div class="loginbox-title">SIGN IN</div>
+            <div class="loginbox-social">
+                <div class="social-buttons">
+                    <a href="javascript:;" class="button-twitter" style="border:none">
+                        <i class=""></i>
+                    </a>
+                    <a href="javascript:;" class="button-facebook">
+                        <i class="social-icon fa fa-windows"></i>
+                    </a>
+                    <a href="javascript:;" class="button-google" style="border:none">
+                        <i class=""></i>
+                    </a>
+                </div>
+            </div>
+            <form method="post" action="<{site_url('manager/login/login_in')}>" class="layui-form">
+                <div class="loginbox-textbox">
+                    <input type="text" name="username" class="form-control" placeholder="请输入账号" lay-verify="required|username" />
+                </div>
+                <div class="loginbox-textbox">
+                    <input type="password" name="password" class="form-control" placeholder="请输入密码" lay-verify="required|password"  />
+                </div>
+                <div class="loginbox-forgot">
+                    <a href="">忘记密码?</a>
+                </div>
+                <div class="loginbox-submit">
+                    <button lay-submit lay-filter="formDemo" class="btn btn-primary btn-block">登&nbsp;&nbsp;录</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!--Basic Scripts-->
+    <script src="<{config_item('website')}>/public/js/jquery-2.0.3.min.js"></script>
+    <script src="<{config_item('website')}>/public/js/bootstrap.min.js"></script>
+
+    <!--Beyond Scripts-->
+    <script src="<{config_item('website')}>/public/js/beyond.js"></script>
+
+    <script src="<{config_item('website')}>/public/js/layui.js"></script>
+
+    <!--Page Related Scripts-->
+
+    <script>
+        layui.use('form', function(){
+            var form = layui.form;
+            form.verify({
+                username: function(value, item){ //value：表单的值、item：表单的DOM对象
+                    if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                        return '用户名不能有特殊字符';
+                    }
+                    if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                        return '用户名首尾不能出现下划线\'_\'';
+                    }
+                    if(/^\d+\d+\d$/.test(value)){
+                        return '用户名不能全为数字';
+                    }
+                }
+                ,password: [/^[\S]{6,12}$/,'密码必须6到12位，且不能出现空格'] 
+            });
+            form.on('submit(formDemo)', function(data){
+                $.ajax({
+                    url:"<{site_url('manager/login/login_in')}>",
+                    data:data.field,
+                    type:'POST',
+                    dataType:'json',
+                    success:function(res){
+                        if(res.status=='y'){
+                            window.location.href = "<{site_url('manager/welcome')}>";
+                        }else{
+                            layer.msg(res.info);
+                        }
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

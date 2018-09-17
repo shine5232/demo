@@ -1,0 +1,111 @@
+<{include file="../header.html"}>
+        <div class="page-content">
+            <div class="page-breadcrumbs">
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="fa fa-home"></i>
+                        <a href="javascript:;">Home</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">商品管理</a>
+                    </li>
+                    <li class="active">商品列表</li>
+                </ul>
+            </div>
+            <div class="page-header position-relative">
+                <div class="header-title">
+                    <h1>
+                        商品管理
+                        <small>
+                            <i class="fa fa-angle-right"></i>
+                            商品列表
+                        </small>
+                    </h1>
+                </div>
+                <div class="header-buttons">
+                    <a class="sidebar-toggler" href="#">
+                        <i class="fa fa-arrows-h"></i>
+                    </a>
+                    <a class="refresh" id="refresh-toggler" href="">
+                        <i class="glyphicon glyphicon-refresh"></i>
+                    </a>
+                    <a class="fullscreen" id="fullscreen-toggler" href="#">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body bordered-left bordered-sky" style="position: relative;">
+                                <form class="layui-form form-inline" style="width: 50%;margin: 0 auto;">
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputEmail2">商品名称</label>
+                                        <input type="text" class="form-control" name="goods_name" placeholder="请输入商品名称" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                        <input type="text" class="form-control" name="goods_sn" placeholder="请输入商品编码" value="" />
+                                    </div>
+                                    <button lay-submit class="btn btn-blue">搜 索</button>
+                                    <button type="reset" class="btn btn-default">清 除</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" tooltip="添加商品" class="btn btn-sm btn-azure btn-addon" onClick="window.location.href = <{site_url('manager/goods/goods_add')}>"><i class="fa fa-plus"></i>添加商品
+                </button>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <div class="widget-body">
+                                <div class="flip-scroll">
+                                    <table class="table table-bordered table-hover">
+                                        <thead class="">
+                                            <tr>
+                                                <th width="40"><input name="" type="checkbox" value="" /></th>
+                                                <th class="text-center">ID</th>
+                                                <th class="text-center">商品名称</th>
+                                                <th class="text-center">商品图片</th>
+                                                <th class="text-center">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input name="id[0]" type="checkbox" value="1" /></td>
+                                                <td align="center">1</td>
+                                                <td align="center">test</td>
+                                                <td align="center">img1</td>
+                                                <td align="center">
+                                                    <a href="<{site_url('manager/goods/goods_edit')}>?id=1" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <button class="btn btn-danger btn-sm shiny" id="bootbox-confirm" onClick="warning('确认要删除吗？','删除商品', '<{site_url('manager/goods/goods_del')}>?id=1')" ><i class="fa fa-trash-o"></i> 删除</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><input name="id[1]" type="checkbox" value="2" /></td>
+                                                <td align="center">2</td>
+                                                <td align="center">aaaaaa</td>
+                                                <td align="center">img2</td>
+                                                <td align="center">
+                                                    <a href="<{site_url('manager/goods/goods_edit')}>?id=1" class="btn btn-primary btn-sm shiny">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+                                                    <button class="btn btn-danger btn-sm shiny" id="bootbox-confirm" onClick="warning('确认要删除吗？','删除商品', '<{site_url('manager/goods/goods_del')}>?id=2')" ><i class="fa fa-trash-o"></i> 删除</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<{include file="../footer.html"}>

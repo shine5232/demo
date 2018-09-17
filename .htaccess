@@ -1,0 +1,7 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|public|views|uploads|install|robots\.txt|favicon\.ico)
+RewriteRule ^(.*)$ /demo/index.php?/$1 [L]
+<Files *.html>
+Order Allow,Deny
+Deny from all
+</Files>

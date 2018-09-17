@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title><{config_item('manager_title')}></title>
+
+    <meta name="description" content="Dashboard">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--Basic Styles-->
+    <link href="<{config_item('website')}>/public/css/bootstrap.min.css" rel="stylesheet" />
+    <link id="bootstrap-rtl-link" href="" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/js/css/layui.css" rel="stylesheet" />
+    <!--Beyond styles-->
+    <link id="beyond-link" href="<{config_item('website')}>/public/css/beyond.css" rel="stylesheet" type="text/css" />
+    <link id="beyond-link" href="<{config_item('website')}>/public/css/beyond.min.css" rel="stylesheet" type="text/css" />
+    <link href="<{config_item('website')}>/public/css/demo.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/typicons.min.css" rel="stylesheet" />
+    <link href="<{config_item('website')}>/public/css/animate.min.css" rel="stylesheet" />
+    <link id="skin-link" href="" rel="stylesheet" type="text/css" />
+
+    <!--Skin Script: Place this script in head to load scripts for skins and rtl support-->
+    <script src="<{config_item('website')}>/public/js/skins.min.js"></script>
+</head>
+<style type="text/css">
+    .bootbox{top:280px;}
+    .modal-content{width:50%;margin: 0 auto;}
+</style>
+<body>
+    <div class="loading-container">
+        <div class="loading-progress">
+            <div class="rotator">
+                <div class="rotator">
+                    <div class="rotator colored">
+                        <div class="rotator">
+                            <div class="rotator colored">
+                                <div class="rotator colored"></div>
+                                <div class="rotator"></div>
+                            </div>
+                            <div class="rotator colored"></div>
+                        </div>
+                        <div class="rotator"></div>
+                    </div>
+                    <div class="rotator"></div>
+                </div>
+                <div class="rotator"></div>
+            </div>
+            <div class="rotator"></div>
+        </div>
+    </div>
+	<div class="navbar">
+	    <div class="navbar-inner">
+	        <div class="navbar-container">
+	            <div class="navbar-header pull-left">
+	                <a href="#" class="navbar-brand">
+	                    <small>
+	                        <img src="<{config_item('website')}>/public/images/logo.png" alt="">
+	                    </small>
+	                </a>
+	            </div>
+	            <div class="sidebar-collapse" id="sidebar-collapse">
+	                <i class="collapse-icon fa fa-bars"></i>
+	            </div>
+	            <div class="navbar-header pull-right">
+	                <div class="navbar-account">
+	                    <ul class="account-area">
+	                    	<li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" title="Tasks" href="#">
+                                    <i class="icon fa fa-tasks"></i>
+                                    <span class="badge">4</span>
+                                </a>
+                                <ul class="pull-right dropdown-menu dropdown-tasks dropdown-arrow ">
+                                    <li class="dropdown-header bordered-darkorange">
+                                        <i class="fa fa-tasks"></i>
+                                        4 Tasks In Progress
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">Account Creation</span>
+                                                <span class="pull-right">65%</span>
+                                            </div>
+
+                                            <div class="progress progress-xs">
+                                                <div style="width:65%" class="progress-bar"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">Profile Data</span>
+                                                <span class="pull-right">35%</span>
+                                            </div>
+
+                                            <div class="progress progress-xs">
+                                                <div style="width:35%" class="progress-bar progress-bar-success"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">Updating Resume</span>
+                                                <span class="pull-right">75%</span>
+                                            </div>
+
+                                            <div class="progress progress-xs">
+                                                <div style="width:75%" class="progress-bar progress-bar-darkorange"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <div class="clearfix">
+                                                <span class="pull-left">Adding Contacts</span>
+                                                <span class="pull-right">10%</span>
+                                            </div>
+
+                                            <div class="progress progress-xs">
+                                                <div style="width:10%" class="progress-bar progress-bar-warning"></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-footer">
+                                        <a href="#">
+                                            See All Tasks
+                                        </a>
+                                        <button class="btn btn-xs btn-default shiny darkorange icon-only pull-right"><i class="fa fa-check"></i></button>
+                                    </li>
+                                </ul>
+                            </li>
+	                        <li>
+	                            <a class="login-area dropdown-toggle" data-toggle="dropdown">
+	                                <div class="avatar" title="View your public profile">
+	                                    <img src="<{config_item('website')}>/public/images/adam-jansen.jpg">
+	                                </div>
+	                                <section>
+	                                    <h2><span class="profile"><span>账号：<{$admin_data.username}></span></span></h2>
+	                                </section>
+	                            </a>
+	                            <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
+	                            	<li>
+	                                    <div class="avatar-area">
+	                                        <img src="<{config_item('website')}>/public/images/adam-jansen.jpg" class="avatar">
+	                                        <span class="caption">Change Photo</span>
+	                                    </div>
+	                                </li>
+                                    <li class="theme-area">
+                                        <ul class="colorpicker" id="skin-changer">
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#5DB2FF;" rel="<{config_item('website')}>/public/css/skins/blue.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#2dc3e8;" rel="<{config_item('website')}>/public/css/skins/azure.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#03B3B2;" rel="<{config_item('website')}>/public/css/skins/teal.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#53a93f;" rel="<{config_item('website')}>/public/css/skins/green.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#FF8F32;" rel="<{config_item('website')}>/public/css/skins/orange.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#cc324b;" rel="<{config_item('website')}>/public/css/skins/pink.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#AC193D;" rel="<{config_item('website')}>/public/css/skins/darkred.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#8C0095;" rel="<{config_item('website')}>/public/css/skins/purple.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#0072C6;" rel="<{config_item('website')}>/public/css/skins/darkblue.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#585858;" rel="<{config_item('website')}>/public/css/skins/gray.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#474544;" rel="<{config_item('website')}>/public/css/skins/black.min.css"></a>
+                                            </li>
+                                            <li>
+                                            	<a class="colorpick-btn" href="#" style="background-color:#001940;" rel="<{config_item('website')}>/public/css/skins/deepblue.min.css"></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+	                                <li class="dropdown-footer">
+	                                    <a href="<{site_url('manager/login/login_out')}>">退出登录</a>
+	                                </li>
+	                            </ul>
+	                        </li>
+	                    </ul>
+	                    <div class="setting">
+	                        <a id="btn-setting" title="Setting" href="#">
+	                            <i class="icon glyphicon glyphicon-cog"></i>
+	                        </a>
+	                    </div>
+	                    <div class="setting-container">
+	                        <label>
+	                            <input type="checkbox" id="checkbox_fixednavbar">
+	                            <span class="text">Fixed Navbar</span>
+	                        </label>
+	                        <label>
+	                            <input type="checkbox" id="checkbox_fixedsidebar">
+	                            <span class="text">Fixed SideBar</span>
+	                        </label>
+	                        <label>
+	                            <input type="checkbox" id="checkbox_fixedbreadcrumbs">
+	                            <span class="text">Fixed BreadCrumbs</span>
+	                        </label>
+	                        <label>
+	                            <input type="checkbox" id="checkbox_fixedheader">
+	                            <span class="text">Fixed Header</span>
+	                        </label>
+	                    </div>
+	                </div>
+	            </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-container container-fluid">
+		<div class="page-container">
+            <{include file="./menu/menu.html"}>
